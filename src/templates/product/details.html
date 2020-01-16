@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<h1>{{obj.name}}</h1>
+
+	<p>{% if obj.description != None and obj.description != '' %} {{obj.description}} {% else %}No description for this item yet. {% endif %}</p>
+
+	<p>$ {{ obj.price }}</p>
+	<p> {{ obj.summary }}</p>
+	<p> {% if obj.featured %} Featured {% else %} Not Featured {% endif %}</p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>About</h1>
+	<p>This is yet another template</p>
+
+	{{ some_html|safe|title }}
+	{{ same_html|striptags }}
+
+	<p>
+		{{ my_text|capfirst|upper }}, {{ my_number }}, {{ my_list }}
+	</p>
+
+	<ul>
+		{% for item in my_list %}
+		<li>{{ item }}</li>
+		{% endfor %}
+	</ul>
+
+	<p>Only numbers greater than 50</p>
+
+	<ul>
+		{% for item in my_list %}
+			{% if item > 50 %}
+				<li>{{ item }}</li>
+			{% elif item|add:25 > 50%}
+				<li>{{ item }} + 25</li>
+			{% else %}
+				<li>{{item}} is smaller than 50</li>	
+			{% endif%}
+		{% endfor %}
+	</ul>
+
+
+{% endblock content %}
